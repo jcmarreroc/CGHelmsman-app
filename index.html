@@ -2,72 +2,209 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>The Helmsman — CG Boot Camp Guide</title>
+<title>The Helmsman — Coast Guard Prep</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="manifest" href="manifest.webmanifest">
+<link rel="manifest" href="manifest.webmanifest?v=4">
 <link rel="icon" sizes="192x192" href="assets/icon-192.png">
 <meta name="theme-color" content="#024773">
 <style>
-:root{--bg:#071521;--paper:#0d2336;--ink:#e9f2ff;--muted:#9fb3c7;--accent:#4fc3f7;}
-*{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#05101b,#0a2031 65%);color:var(--ink);font-family:-apple-system,system-ui,Segoe UI,Roboto,Arial,sans-serif}
-header{position:sticky;top:0;background:rgba(7,21,33,.9);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.08);padding:10px 16px;z-index:10}
-header h1{margin:0;font-size:18px;letter-spacing:.3px}
-.wrap{max-width:980px;margin:0 auto;padding:18px}
-.toc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px}
-.toc a{display:block;color:var(--accent);text-decoration:none;margin:6px 0}
-.section{background:var(--paper);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;margin:16px 0}
-.section h2{margin:0 0 8px 0}
-ul{margin:8px 0 0 18px}
-.links a{color:var(--accent);margin-right:12px}
-hr{border:none;border-top:1px dashed rgba(255,255,255,.12);margin:16px 0}
-.btn{background:var(--accent);color:#032033;border:none;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}
-.quiz .q{margin:12px 0}
-.quiz label{display:block;margin:8px 0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);padding:10px;border-radius:10px}
-.result{font-weight:700;margin-top:8px}
-.small{font-size:12px;color:var(--muted)}
-footer{text-align:center;color:var(--muted);padding:18px}
+:root{--bg:#061726;--ink:#e9f2ff;--muted:#9fb3c7;--accent:#4fc3f7;--paper:#0d2540;--border:rgba(255,255,255,.12);}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#061726,#0a2945 60%);color:var(--ink);font-family:-apple-system,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+nav{position:sticky;top:0;background:rgba(8,25,48,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);z-index:20}
+nav .bar{max-width:1200px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+nav h1{margin:0;font-size:18px}
+.badge{padding:4px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:12px}
+.container{max-width:1200px;margin:0 auto;padding:16px}
+.card{background:var(--paper);border:1px solid var(--border);border-radius:14px;padding:16px}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:900px){.grid{grid-template-columns:340px 1fr}}
+.sec-title{margin:0 0 10px 0}
+.links a{margin-right:12px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.tab{border:1px solid var(--border);border-radius:999px;padding:8px 12px;cursor:pointer;background:rgba(255,255,255,.04)}
+.tab.active{background:var(--accent);color:#06233f;border-color:transparent}
+.viewer{height:75vh;min-height:480px}
+iframe{width:100%;height:100%;border:none;background:#071a2c;border-radius:12px}
+.toolbar{display:flex;gap:8px;align-items:center;margin:8px 0}
+.btn{background:var(--accent);color:#06233f;border:none;border-radius:10px;padding:8px 12px;font-weight:700;cursor:pointer}
+.input{background:rgba(255,255,255,.06);border:1px solid var(--border);color:var(--ink);padding:6px 10px;border-radius:8px;width:90px}
+.small{color:var(--muted);font-size:12px}
+.quiz label{display:block;margin:8px 0;background:rgba(255,255,255,.05);border:1px solid var(--border);padding:10px;border-radius:10px}
+.btn2{background:#81c784;color:#06223e;border:none;border-radius:10px;padding:8px 12px;font-weight:700;cursor:pointer;margin-right:8px}
+.result{font-weight:700;margin-top:6px}
 </style>
 </head>
 <body>
-<header>
-  <h1>The Helmsman — Coast Guard Boot Camp Guide</h1>
-</header>
-<div class="wrap">
-  <div class="section">
-    <p>Read this guide straight through. It mirrors the PDF-style info so you have everything up front. A short <strong>Readiness Check</strong> quiz is at the end.</p>
-    <div class="links" id="linkbar"></div>
+<nav>
+  <div class="bar">
+    <img src="assets/icon-192.png" width="26" height="26" alt="" style="border-radius:6px">
+    <h1>The Helmsman — Coast Guard Prep</h1>
+    <span class="badge">Flipbook</span><span class="badge">Installable PWA</span><span class="badge">Offline-ready</span>
+    <div style="flex:1"></div>
+    <div class="links" id="toplinks"></div>
   </div>
+</nav>
 
-  <div class="toc" id="toc"><strong>Contents</strong></div>
+<div class="container">
+  <div class="grid">
+    <div class="card">
+      <h3 class="sec-title">Sections</h3>
+      <div class="tabs" id="tabs">
+        <div class="tab active" data-tab="helmsman">Helmsman (PDF)</div>
+        <div class="tab" data-tab="standards">Physical Standards</div>
+        <div class="tab" data-tab="quiz">Combined Quiz</div>
+        <div class="tab" data-tab="start">START (PDF)</div>
+        <div class="tab" data-tab="family">Family Guide (PDF)</div>
+      </div>
+      <p class="small">Tip: Use <strong>◀ / ▶</strong> keys or swipe to change pages when reading PDFs.</p>
+    </div>
+    <div class="card">
+      <div id="panel-helmsman" class="panel">
+        <div class="toolbar">
+          <button class="btn" id="prev">◀ Prev</button>
+          <div>Page <input id="page" class="input" type="number" min="1" value="1"> </div>
+          <button class="btn" id="next">Next ▶</button>
+          <button class="btn" id="open">Open full PDF</button>
+          <div style="flex:1"></div>
+          <label class="small">Zoom <input id="zoom" class="input" type="range" min="80" max="200" step="5" value="125"></label>
+        </div>
+        <div class="viewer"><iframe id="frame" title="Helmsman PDF"></iframe></div>
+      </div>
 
-  <div id="guide"></div>
+      <div id="panel-standards" class="panel" style="display:none">
+        <h2>Updated Physical Standards (No Swim/Row)</h2>
+        <p>Graduation is based on <strong>Push-ups (1 min)</strong>, <strong>Plank</strong>, and <strong>1.5-mile Run</strong>. Swim and 2000m Row are not included.</p>
+        <img src="assets/updated_standards.png" alt="Updated standards" style="max-width:100%;border:1px solid var(--border);border-radius:12px">
+        <h3>Training Tips</h3>
+        <ul>
+          <li><strong>Push-ups:</strong> 3×/week, 3–5 sub-max sets; add 1–2 reps weekly; elbows ~45°.</li>
+          <li><strong>Planks:</strong> 3–4×/week, 3–4 holds; +10–15s each session; add side planks.</li>
+          <li><strong>Run:</strong> 2 easy runs + 1 interval day (e.g., 6×400m @ 5K pace, 1–2 min recovery).</li>
+        </ul>
+      </div>
 
-  <div class="section" id="quiz">
-    <h2>Readiness Check (Short Quiz)</h2>
-    <div class="quiz" id="quiz-host"></div>
-    <button class="btn" id="check">Check answers</button>
-    <button class="btn" id="reset" style="margin-left:8px;background:#81c784">Reset</button>
-    <div class="small" id="score"></div>
+      <div id="panel-quiz" class="panel" style="display:none">
+        <h2>Combined Readiness Quiz</h2>
+        <p class="small">Topics: 11 General Orders, PT standards, ranks/rates, phonetic alphabet, military time.</p>
+        <div id="quizhost"></div>
+        <div style="margin-top:10px">
+          <button class="btn2" id="check">Check answers</button>
+          <button class="btn2" id="reset">Reset</button>
+          <span class="small" id="score"></span>
+        </div>
+      </div>
+
+      <div id="panel-start" class="panel" style="display:none">
+        <div class="viewer"><iframe id="frame-start" title="START PDF"></iframe></div>
+      </div>
+
+      <div id="panel-family" class="panel" style="display:none">
+        <div class="viewer"><iframe id="frame-family" title="Family PDF"></iframe></div>
+      </div>
+    </div>
   </div>
 </div>
 
-<footer>Semper Paratus — Add to Home Screen for offline use.</footer>
-
 <script src="content.js"></script>
 <script>
-const L=window.APP_CONTENT;
-// Links
-const linkbar=document.getElementById('linkbar');
-Object.entries(L.links).forEach(([k,v])=>{const a=document.createElement('a');a.href=v;a.target='_blank';a.rel='noopener';a.textContent=k;linkbar.appendChild(a);});
-// TOC + Guide
-const toc=document.getElementById('toc'); const host=document.getElementById('guide');
-L.guide.forEach((s,i)=>{const id='s'+i;const a=document.createElement('a');a.href='#'+id;a.textContent=(i+1)+'. '+s.title;toc.appendChild(a);
-const sec=document.createElement('div');sec.className='section';sec.id=id;sec.innerHTML='<h2>'+s.title+'</h2><ul>'+s.bullets.map(b=>'<li>'+b+'</li>').join('')+'</ul>';host.appendChild(sec);});
-// Quiz
-const qh=document.getElementById('quiz-host');function buildQuiz(){qh.innerHTML=L.final_quiz.map((q,i)=>`<div class="q"><div><strong>Q${i+1}.</strong> ${q.q}</div>${q.choices.map((c,ci)=>`<label><input type="radio" name="q${i}" value="${ci}"> ${c}</label>`).join('')}<div class="result" id="r${i}"></div></div>`).join('');}
-buildQuiz();
-document.getElementById('check').addEventListener('click',()=>{let score=0;L.final_quiz.forEach((q,i)=>{const chosen=[...document.querySelectorAll('input[name="q'+i+'"]')].find(r=>r.checked);const val=chosen?parseInt(chosen.value):-1;const r=document.getElementById('r'+i);if(val===q.answer){r.textContent='✅ Correct. '+q.explain;score++;}else{r.textContent='❌ Not quite. '+q.explain;}});document.getElementById('score').textContent='Score: '+score+' / '+L.final_quiz.length;});
-document.getElementById('reset').addEventListener('click',buildQuiz);
+const L = window.HELMS;
+
+// Top links
+const toplinks = document.getElementById('toplinks');
+Object.entries(L.links).forEach(([k,v])=>{const a=document.createElement('a');a.href=v;a.target='_blank';a.rel='noopener';a.textContent=k;toplinks.appendChild(a);});
+
+// Tabs logic
+const tabs = document.querySelectorAll('.tab');
+const panels = {
+  helmsman: document.getElementById('panel-helmsman'),
+  standards: document.getElementById('panel-standards'),
+  quiz: document.getElementById('panel-quiz'),
+  start: document.getElementById('panel-start'),
+  family: document.getElementById('panel-family'),
+};
+tabs.forEach(t=>t.addEventListener('click', ()=>{
+  tabs.forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  const id=t.dataset.tab;
+  Object.values(panels).forEach(p=>p.style.display='none');
+  panels[id].style.display='block';
+  if(id==='helmsman'){loadPDF('helmsman',1);}
+  if(id==='start'){loadPDF('start',1);}
+  if(id==='family'){loadPDF('family',1);}
+}));
+
+// PDF helpers
+const frame = document.getElementById('frame');
+const frameStart = document.getElementById('frame-start');
+const frameFamily = document.getElementById('frame-family');
+const page = document.getElementById('page');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+const openBtn = document.getElementById('open');
+const zoom = document.getElementById('zoom');
+
+function srcOf(id, pg){
+  const entry = L.pdfs.find(p=>p.id===id);
+  if(!entry) return '';
+  const z = zoom.value||125;
+  return entry.file + '#page=' + (pg||1) + '&zoom=' + z;
+}
+function loadPDF(id, pg){
+  if(id==='helmsman'){ frame.setAttribute('src', srcOf('helmsman', pg)); }
+  if(id==='start'){ frameStart.setAttribute('src', srcOf('start', pg)); }
+  if(id==='family'){ frameFamily.setAttribute('src', srcOf('family', pg)); }
+}
+page.addEventListener('change', ()=> loadPDF('helmsman', parseInt(page.value||'1')) );
+prev.addEventListener('click', ()=> { page.value=Math.max(1, parseInt(page.value||'2')-1); loadPDF('helmsman', parseInt(page.value)); });
+next.addEventListener('click', ()=> { page.value=parseInt(page.value||'0')+1; loadPDF('helmsman', parseInt(page.value)); });
+openBtn.addEventListener('click', ()=> { const u=srcOf('helmsman', parseInt(page.value||'1')); if(u) window.open(u,'_blank'); });
+zoom.addEventListener('input', ()=> loadPDF('helmsman', parseInt(page.value||'1')) );
+
+// Keyboard shortcuts
+window.addEventListener('keydown', e=>{
+  const active = document.querySelector('.tab.active')?.dataset?.tab;
+  if(active==='helmsman'){
+    if(e.key==='ArrowRight'){ next.click(); }
+    if(e.key==='ArrowLeft'){ prev.click(); }
+  }
+});
+
+// Initialize first panel
+loadPDF('helmsman',1);
+if(!L.pdfs.find(p=>p.id==='helmsman')){ document.querySelector('.tab[data-tab="helmsman"]').style.display='none'; panels.helmsman.style.display='none'; document.querySelector('.tab[data-tab="standards"]').click(); }
+
+// START + Family sources if present
+if(!L.pdfs.find(p=>p.id==='start')) document.querySelector('.tab[data-tab="start"]').style.display='none';
+if(!L.pdfs.find(p=>p.id==='family'])) document.querySelector('.tab[data-tab="family"]').style.display='none';
+
+// Quiz builder
+const host=document.getElementById('quizhost');
+function drawQuiz(){
+  host.innerHTML = L.quiz.map((q,i)=>`
+    <div class="q">
+      <div><strong>Q${i+1}.</strong> ${q.q}</div>
+      ${q.choices.map((c,ci)=>`<label><input type="radio" name="q${i}" value="${ci}"> ${c}</label>`).join('')}
+      <div class="result" id="r${i}"></div>
+    </div>
+  `).join('');
+}
+drawQuiz();
+document.getElementById('check').onclick=()=>{
+  let score=0;
+  L.quiz.forEach((q,i)=>{
+    const chosen=[...document.querySelectorAll('input[name="q'+i+'"]')].find(r=>r.checked);
+    const val=chosen?parseInt(chosen.value):-1;
+    const r=document.getElementById('r'+i);
+    if(val===q.a){r.textContent='✅ Correct. '+q.e;score++;}else{r.textContent='❌ Not quite. '+q.e;}
+  });
+  document.getElementById('score').textContent=' Score: '+score+' / '+L.quiz.length;
+};
+document.getElementById('reset').onclick=drawQuiz;
+
+// Service worker
+if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js?v=4');});}
 </script>
 </body>
 </html>
