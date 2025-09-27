@@ -1,10 +1,11 @@
 {
-  "name": "The Helmsman \u2014 Prep App",
-  "short_name": "Helmsman Prep",
-  "start_url": ".",
+  "name": "Helmsman \u2014 CG Boot Camp Guide",
+  "short_name": "Helmsman Guide",
+  "start_url": "/CGHelmsman-app/",
+  "scope": "/CGHelmsman-app/",
   "display": "standalone",
-  "background_color": "#0D47A1",
-  "theme_color": "#0D47A1",
+  "theme_color": "#024773",
+  "background_color": "#024773",
   "icons": [
     {
       "src": "assets/icon-192.png",
